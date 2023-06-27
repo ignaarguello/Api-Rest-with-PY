@@ -1,1 +1,4 @@
-# Primera API REST que vamos a crear un Python y Flask
+# Primera app con Python y Flask
+
+# Comando para iniciar el virtualenv
+source ./env/bin/activate
