@@ -1,6 +1,5 @@
 from app import app
 
-
 @app.route('/')
 def hello():
     return 'Mi Primera app con flask perri'
