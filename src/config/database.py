@@ -12,7 +12,7 @@ certified = certifi.where()
 def db_connection():
     try:
         client = MongoClient(MONGO_URI, tlsCAFile=certified)
-        db = client("Salute Drinks Python")
+        db = client["salute_drinks_python"]
     except ConnectionError:
-        print('Error en la ejecucion de la base de datos')
+        print('Error en la conexion de la base de datos')
     return db
