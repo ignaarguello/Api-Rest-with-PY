@@ -1,7 +1,9 @@
+from crypt import methods
 from email import message
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, Response
 from config.database import db_connection
 from models.product_model_data import Product
+from bson import json_util
 
 products_bp = Blueprint("products", __name__)
 
@@ -9,11 +11,11 @@ db = db_connection()
 
 
 # ? Routes for Products
-@products_bp.route("/products")
+@products_bp.route("/products", methods=['GET'])
 def get_products():
-    products = db['products']
-    productsReceived = products.find()
-    return productsReceived
+    products = db['products'].find()
+    response = json_util.dumps(products)
+    return Response(response, mimetype='application/json')
 
 
 @products_bp.route('/products', methods=['POST'])
