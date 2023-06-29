@@ -13,6 +13,7 @@ def db_connection():
     try:
         client = MongoClient(MONGO_URI, tlsCAFile=certified)
         db = client["salute_drinks_python"]
+        print('● Successful connection to Database ●')
     except ConnectionError:
-        print('Error en la conexion de la base de datos')
+        print('✖️ Error from connect to database ✖️ ')
     return db
